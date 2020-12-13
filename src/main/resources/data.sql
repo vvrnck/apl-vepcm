@@ -44,6 +44,15 @@ VALUES (8, '8º Ano', 'oitavo ano do ensino fundamental');
 INSERT INTO ano_escolaridade (id, nome, descricao)
 VALUES (9, '9º Ano', 'nono ano do ensino fundamental');
 
+INSERT INTO unidade_escolar (id, nome, numVagas, data, endereco_id, ano_escolaridade_id)
+VALUES (1, 'Escola A', 23, '21-21-11', 1, 1);
+INSERT INTO unidade_escolar (id, nome, numVagas, data, endereco_id, ano_escolaridade_id)
+VALUES (1, 'Escola B', 4, '21-21-13', 2, 9);
 
+
+INSERT INTO solicitacao (id, protocolo, data, responsavel_id, aluno_id, ano_escolaridade_id, unidade_escolar_id)
+VALUES (1, '1232342', '21-21-11', 1, 1, 1);
+INSERT INTO solicitacao (id, protocolo, data, responsavel_id, aluno_id, ano_escolaridade_id, unidade_escolar_id)
+VALUES (1, '12235662', '22-09-2001', 2, 8, 2);
 
 

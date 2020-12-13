@@ -63,4 +63,6 @@ public class UnidadeEscolar {
     public void setAnoEscolaridade(Set<AnoEscolaridade> anoEscolaridade) {
         this.anoEscolaridade = anoEscolaridade;
     }
+
+
 }

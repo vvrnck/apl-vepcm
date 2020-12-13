@@ -45,7 +45,6 @@ public class AnoEscolaridadeServiceImpl implements AnoEscolaridadeService {
         AnoEscolaridade anoEscolaridade = buscarPorId(id);
 
         if (Objects.isNull(anoEscolaridade)) return null;
-
         if (Objects.nonNull(anoEscolaridadeAlterado.getNome())) anoEscolaridade.setNome(anoEscolaridadeAlterado.getNome());
         if (Objects.nonNull(anoEscolaridadeAlterado.getDescricao())) anoEscolaridade.setDescricao(anoEscolaridadeAlterado.getDescricao());
         return salvarAnoEscolaridade(anoEscolaridade);

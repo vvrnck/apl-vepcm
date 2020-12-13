@@ -1,6 +1,7 @@
 package br.com.uff.vepcm.domain.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class AnoEscolaridade {
@@ -9,6 +10,7 @@ public class AnoEscolaridade {
     private Long id;
     private String nome;
     private String descricao;
+
 
     public AnoEscolaridade() {}
 

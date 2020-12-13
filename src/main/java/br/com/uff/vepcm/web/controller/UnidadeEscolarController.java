@@ -1,7 +1,9 @@
 package br.com.uff.vepcm.web.controller;
 
+import br.com.uff.vepcm.domain.entity.Aluno;
 import br.com.uff.vepcm.domain.entity.UnidadeEscolar;
 import br.com.uff.vepcm.service.UnidadeEscolarService;
+import br.com.uff.vepcm.web.dto.AlunoDTO;
 import br.com.uff.vepcm.web.dto.UnidadeEscolarDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;
@@ -88,6 +90,5 @@ public class UnidadeEscolarController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "UnidadeEscolar nao encontrado");
         return mapperUtil.mapTo(unidadeEscolar, UnidadeEscolarDTO.class);
     }
-
 
 }
