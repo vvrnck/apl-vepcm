@@ -32,15 +32,21 @@ public class UnidadeEscolarController {
 
     MapperUtil mapperUtil = MapperUtil.getInstance();
 
+    @Operation(summary = "Cria uma nova Unidade Escolar.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Unidade Escolar criada com sucesso.",
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeEscolarDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Unidade Escolar inválida.", content = @Content)
+    })
     @PostMapping
     public UnidadeEscolarDTO criarUnidadeEscolar (@RequestBody UnidadeEscolarDTO unidadeEscolarDTO) {
         UnidadeEscolar unidadeEscolar = unidadeEscolarService.salvarUE(mapperUtil.mapTo(unidadeEscolarDTO, UnidadeEscolar.class));
         return mapperUtil.mapTo(unidadeEscolar, UnidadeEscolarDTO.class);
     }
 
-    @Operation(summary = "Retorna todos os unidadeEscolars")
+    @Operation(summary = "Busca por todas as Unidades Escolares.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "UnidadeEscolars encontrados",
+            @ApiResponse(responseCode = "200", description = "Unidades Escolares encontradas.",
                     content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UnidadeEscolarDTO.class))) })
     })
     @GetMapping
@@ -48,46 +54,46 @@ public class UnidadeEscolarController {
         return mapperUtil.toList(unidadeEscolarService.buscarTodas(), UnidadeEscolarDTO.class);
     }
 
-    @Operation(summary = "Busca um unidadeEscolar por seu id")
+    @Operation(summary = "Busca uma Unidade Escolar pelo seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "UnidadeEscolar encontrado",
+            @ApiResponse(responseCode = "200", description = "Unidade Escolar encontrada.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeEscolarDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "UnidadeEscolar nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Unidade Escolar não encontrada.", content = @Content)
     })
     @GetMapping("{id}")
-    public UnidadeEscolarDTO buscarPorId(@Parameter(description = "id do unidadeEscolar a ser encontrado") @PathVariable Long id) {
+    public UnidadeEscolarDTO buscarPorId(@Parameter(description = "id da Unidade Escolar a ser encontrada.") @PathVariable Long id) {
         UnidadeEscolar unidadeEscolar = unidadeEscolarService.buscarPorId(id);
         if (Objects.isNull(unidadeEscolar))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return mapperUtil.mapTo(unidadeEscolar, UnidadeEscolarDTO.class);
     }
 
-    @Operation(summary = "Remove um unidadeEscolar por seu id")
+    @Operation(summary = "Remove uma Unidade Escolar por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "UnidadeEscolar removido com sucesso"),
-            @ApiResponse(responseCode = "404", description = "UnidadeEscolar nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "200", description = "Unidade Escolar removida com sucesso."),
+            @ApiResponse(responseCode = "404", description = "Unidade Escolar não encontrada.", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String remover(@Parameter(description = "id do unidadeEscolar a ser removido") @PathVariable Long id) {
+    public String remover(@Parameter(description = "id da Unidade Escolar a ser removida.") @PathVariable Long id) {
         if (Objects.isNull(unidadeEscolarService.buscarPorId(id)))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "UnidadeEscolar nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unidade Escolar não encontrada.");
         unidadeEscolarService.removerUE(id);
-        return "UnidadeEscolar removido com sucesso!";
+        return "Unidade Escolar removida com sucesso!";
     }
 
 
-    @Operation(summary = "Altera um unidadeEscolar")
+    @Operation(summary = "Altera uma Unidade Escolar")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "UnidadeEscolar alterado com sucesso",
+            @ApiResponse(responseCode = "200", description = "Unidade Escolar alterada com sucesso.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeEscolarDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "UnidadeEscolar nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Unidade Escolar não encontrada.", content = @Content)
     })
     @PutMapping("{id}")
-    public UnidadeEscolarDTO alterarUnidadeEscolar(@Parameter(description = "id do unidadeEscolar a ser alterado") @PathVariable Long id, @RequestBody UnidadeEscolarDTO unidadeEscolarDTO) {
+    public UnidadeEscolarDTO alterarUnidadeEscolar(@Parameter(description = "id da Unidade Escolar a ser alterada.") @PathVariable Long id, @RequestBody UnidadeEscolarDTO unidadeEscolarDTO) {
         UnidadeEscolar unidadeEscolar = unidadeEscolarService.alterarUE(id, mapperUtil.mapTo(unidadeEscolarDTO, UnidadeEscolar.class));
         if (Objects.isNull(unidadeEscolar))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "UnidadeEscolar nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unidade Escolar não encontrada.");
         return mapperUtil.mapTo(unidadeEscolar, UnidadeEscolarDTO.class);
     }
 

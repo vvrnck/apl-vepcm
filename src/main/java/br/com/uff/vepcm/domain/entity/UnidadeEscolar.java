@@ -13,7 +13,7 @@ public class UnidadeEscolar {
     private String data;
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<AnoEscolaridade> anoEscolaridade;
 
     public Long getId() {

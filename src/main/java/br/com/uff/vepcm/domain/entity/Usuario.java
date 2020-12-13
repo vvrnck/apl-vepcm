@@ -1,10 +1,8 @@
 package br.com.uff.vepcm.domain.entity;
 
 import br.com.uff.vepcm.domain.enums.TipoUsuario;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 @Entity
 public class Usuario {
@@ -18,8 +16,6 @@ public class Usuario {
     private String senha;
     @NotNull
     private TipoUsuario tipoUsuario;
-//    @Transient
-//    private TipoUsuario tipoUsuarioEnum;
     @OneToOne(cascade = CascadeType.ALL)
     private Pessoa pessoa;
 

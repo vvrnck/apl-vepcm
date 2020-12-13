@@ -31,13 +31,19 @@ public class AlunoController {
 
     MapperUtil mapperUtil = MapperUtil.getInstance();
 
+    @Operation(summary = "Cria um novo Aluno.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Aluno criado com sucesso.",
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AlunoDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Aluno inválido.", content = @Content)
+    })
     @PostMapping
     public AlunoDTO criarAluno (@RequestBody AlunoDTO alunoDTO) {
         Aluno aluno = alunoService.salvarAluno(mapperUtil.mapTo(alunoDTO, Aluno.class));
         return mapperUtil.mapTo(aluno, AlunoDTO.class);
     }
 
-    @Operation(summary = "Retorna todos os alunos")
+    @Operation(summary = "Busca por todos os alunos.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Alunos encontrados",
                     content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AlunoDTO.class))) })
@@ -47,58 +53,58 @@ public class AlunoController {
         return mapperUtil.toList(alunoService.buscarTodosAlunos(), AlunoDTO.class);
     }
 
-    @Operation(summary = "Busca um aluno por seu id")
+    @Operation(summary = "Busca um aluno por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Aluno encontrado",
+            @ApiResponse(responseCode = "200", description = "Aluno encontrado.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AlunoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Aluno nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Aluno não encontrado.", content = @Content)
     })
     @GetMapping("{id}")
-    public AlunoDTO buscarPorId(@Parameter(description = "id do aluno a ser encontrado") @PathVariable Long id) {
+    public AlunoDTO buscarPorId(@Parameter(description = "id do aluno a ser encontrado.") @PathVariable Long id) {
         Aluno aluno = alunoService.buscarPorId(id);
         if (Objects.isNull(aluno))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return mapperUtil.mapTo(aluno, AlunoDTO.class);
     }
 
-    @Operation(summary = "Remove um aluno por seu id")
+    @Operation(summary = "Remove um aluno por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Aluno removido com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Aluno nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "200", description = "Aluno removido com sucesso!"),
+            @ApiResponse(responseCode = "404", description = "Aluno não encontrado", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String remover(@Parameter(description = "id do aluno a ser removido") @PathVariable Long id) {
+    public String remover(@Parameter(description = "id do aluno a ser removido.") @PathVariable Long id) {
         if (Objects.isNull(alunoService.buscarPorId(id)))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado.");
         alunoService.removerAluno(id);
         return "Aluno removido com sucesso!";
     }
 
 
-    @Operation(summary = "Altera um aluno")
+    @Operation(summary = "Altera um aluno.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Aluno alterado com sucesso",
+            @ApiResponse(responseCode = "200", description = "Aluno alterado com sucesso.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AlunoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Aluno nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Aluno não encontrado.", content = @Content)
     })
     @PutMapping("{id}")
-    public AlunoDTO alterarAluno(@Parameter(description = "id do aluno a ser alterado") @PathVariable Long id, @RequestBody AlunoDTO alunoDTO) {
+    public AlunoDTO alterarAluno(@Parameter(description = "id do aluno a ser alterado.") @PathVariable Long id, @RequestBody AlunoDTO alunoDTO) {
         Aluno aluno = alunoService.alterarAluno(id, mapperUtil.mapTo(alunoDTO, Aluno.class));
         if (Objects.isNull(aluno))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado.");
         return mapperUtil.mapTo(aluno, AlunoDTO.class);
     }
 
 
-    @Operation(summary = "Busca os alunos pelo id do responsável")
+    @Operation(summary = "Busca todos os alunos de um responsável por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Alunos encontrados",
+            @ApiResponse(responseCode = "200", description = "Alunos encontrados.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AlunoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Alunos nao encontrados", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Alunos não encontrados.", content = @Content)
     })
     @GetMapping("responsavel/{id}")
-    public List<AlunoDTO> buscarAlunosPorId(@Parameter(description = "id do responsável que possui alunos") @PathVariable Long id) {
+    public List<AlunoDTO> buscarAlunosPorId(@Parameter(description = "id do responsável que possui alunos.") @PathVariable Long id) {
         List<Aluno> alunos = alunoService.buscaAlunosPorResponsavel(id);
         if (Objects.isNull(alunos))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
