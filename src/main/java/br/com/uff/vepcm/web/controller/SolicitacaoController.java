@@ -3,6 +3,7 @@ package br.com.uff.vepcm.web.controller;
 import br.com.uff.vepcm.domain.entity.Solicitacao;
 import br.com.uff.vepcm.service.SolicitacaoService;
 import br.com.uff.vepcm.web.dto.SolicitacaoDTO;
+import br.com.uff.vepcm.web.dto.UnidadeEscolarDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -31,15 +32,21 @@ public class SolicitacaoController {
 
     MapperUtil mapperUtil = MapperUtil.getInstance();
 
+    @Operation(summary = "Cria uma nova Solicitação.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Solicitação criada com sucesso.",
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeEscolarDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Solicitação inválida.", content = @Content)
+    })
     @PostMapping
     public SolicitacaoDTO criarSolicitacao (@RequestBody SolicitacaoDTO solicitacaoDTO) {
         Solicitacao solicitacao = solicitacaoService.salvarSolicitacao(mapperUtil.mapTo(solicitacaoDTO, Solicitacao.class));
         return mapperUtil.mapTo(solicitacao, SolicitacaoDTO.class);
     }
 
-    @Operation(summary = "Retorna todas as solicitações")
+    @Operation(summary = "Busca por todas as Solicitações.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacões encontradas",
+            @ApiResponse(responseCode = "200", description = "Solicitações encontradas.",
                     content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = SolicitacaoDTO.class))) })
     })
     @GetMapping
@@ -47,58 +54,58 @@ public class SolicitacaoController {
         return mapperUtil.toList(solicitacaoService.buscarTodasSolicitacoes(), SolicitacaoDTO.class);
     }
 
-    @Operation(summary = "Busca uma solicitacao por seu id")
+    @Operation(summary = "Busca uma Solicitação por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacao encontrada",
+            @ApiResponse(responseCode = "200", description = "Solicitação encontrada.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Solicitacao nao encontrada", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Solicitação não encontrada.", content = @Content)
     })
     @GetMapping("{id}")
-    public SolicitacaoDTO buscarPorId(@Parameter(description = "id do solicitacao a ser encontrado") @PathVariable Long id) {
+    public SolicitacaoDTO buscarPorId(@Parameter(description = "id da Solicitação a ser encontrada.") @PathVariable Long id) {
         Solicitacao solicitacao = solicitacaoService.buscarPorId(id);
         if (Objects.isNull(solicitacao))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return mapperUtil.mapTo(solicitacao, SolicitacaoDTO.class);
     }
 
-    @Operation(summary = "Remove um solicitacao por seu id")
+    @Operation(summary = "Remove uma Solicitação por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacao removido com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Solicitacao nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "200", description = "Solicitacao removida com sucesso."),
+            @ApiResponse(responseCode = "404", description = "Solicitacao não encontrada.", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String remover(@Parameter(description = "id do solicitacao a ser removido") @PathVariable Long id) {
+    public String remover(@Parameter(description = "id da Solicitação a ser removida.") @PathVariable Long id) {
         if (Objects.isNull(solicitacaoService.buscarPorId(id)))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Solicitacao nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Solicitação não encontrada.");
         solicitacaoService.removerSolicitacao(id);
-        return "Solicitacao removido com sucesso!";
+        return "Solicitação removida com sucesso!";
     }
 
 
-    @Operation(summary = "Altera uma solicitacao")
+    @Operation(summary = "Altera uma Solicitação.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacao alterado com sucesso",
+            @ApiResponse(responseCode = "200", description = "Solicitação alterada com sucesso.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Solicitacao nao encontrada", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Solicitação não encontrada.", content = @Content)
     })
     @PutMapping("{id}")
-    public SolicitacaoDTO alterarSolicitacao(@Parameter(description = "id da solicitacao a ser alterada") @PathVariable Long id, @RequestBody SolicitacaoDTO solicitacaoDTO) {
+    public SolicitacaoDTO alterarSolicitacao(@Parameter(description = "id da Solicitação a ser alterada.") @PathVariable Long id, @RequestBody SolicitacaoDTO solicitacaoDTO) {
         Solicitacao solicitacao = solicitacaoService.alterarSolicitacao(id, mapperUtil.mapTo(solicitacaoDTO, Solicitacao.class));
         if (Objects.isNull(solicitacao))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Solicitacao nao encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Solicitação não encontrada.");
         return mapperUtil.mapTo(solicitacao, SolicitacaoDTO.class);
     }
 
 
-    @Operation(summary = "Busca as solicitacaos pelo protocolo")
+    @Operation(summary = "Busca a Solicitação pelo número do protocolo.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacoes encontradas",
+            @ApiResponse(responseCode = "200", description = "Solicitação encontrada.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Solicitacoes nao encontradas", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Solicitação não encontrada.", content = @Content)
     })
     @GetMapping("search")
-    public List<SolicitacaoDTO> buscarSolicitacoesPorProtocolo(@Parameter(description = "solicitacoes que possuem esse numero de protocolo") @RequestParam(name = "protocolo") String protocolo) {
+    public List<SolicitacaoDTO> buscarSolicitacoesPorProtocolo(@Parameter(description = "número do protocolo de uma Solicitação.") @RequestParam(name = "protocolo") String protocolo) {
         List<Solicitacao> solicitacaos = solicitacaoService.buscarSolicitacoesPorProtocolo(protocolo);
         if (Objects.isNull(solicitacaos))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);

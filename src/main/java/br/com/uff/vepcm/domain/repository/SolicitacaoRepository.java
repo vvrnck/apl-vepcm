@@ -1,6 +1,5 @@
 package br.com.uff.vepcm.domain.repository;
 
-import br.com.uff.vepcm.domain.entity.Aluno;
 import br.com.uff.vepcm.domain.entity.Solicitacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

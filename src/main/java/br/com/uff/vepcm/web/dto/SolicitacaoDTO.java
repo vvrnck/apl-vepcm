@@ -50,20 +50,20 @@ public class SolicitacaoDTO {
         Responsavel = responsavel;
     }
 
-    public br.com.uff.vepcm.domain.entity.Aluno getAluno() {
+    public Aluno getAluno() {
         return Aluno;
     }
 
-    public void setAluno(br.com.uff.vepcm.domain.entity.Aluno aluno) {
+    public void setAluno(Aluno aluno) {
         Aluno = aluno;
     }
 
 
-    public br.com.uff.vepcm.domain.entity.UnidadeEscolar getUnidadeEscolar() {
+    public UnidadeEscolar getUnidadeEscolar() {
         return UnidadeEscolar;
     }
 
-    public void setUnidadeEscolar(br.com.uff.vepcm.domain.entity.UnidadeEscolar unidadeEscolar) {
+    public void setUnidadeEscolar(UnidadeEscolar unidadeEscolar) {
         UnidadeEscolar = unidadeEscolar;
     }
 }

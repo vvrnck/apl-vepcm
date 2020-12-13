@@ -1,34 +1,34 @@
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (1, 'Bairro A', '11130-310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
+VALUES (1, 'Bairro A', '11130/310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (2, 'Bairro C', '21721-263', 'LT. 78', 'Rua 2132', 'Rio de Janeiro', '32', 'RJ');
+VALUES (2, 'Bairro C', '21721/263', 'LT. 78', 'Rua 2132', 'Rio de Janeiro', '32', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (3, 'Bairro K', '23120-191', 'S/N', 'Rua K1', 'Rio de Janeiro', '8', 'RJ');
+VALUES (3, 'Bairro K', '23120/191', 'S/N', 'Rua K1', 'Rio de Janeiro', '8', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (4, 'Bairro C', '21721-263', '', 'Rua 2167', 'Rio de Janeiro', '226', 'RJ');
+VALUES (4, 'Bairro C', '21721/263', '', 'Rua 2167', 'Rio de Janeiro', '226', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (5, 'Bairro A', '11130-310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
+VALUES (5, 'Bairro A', '11130/310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (6, 'Bairro A', '11130-310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
+VALUES (6, 'Bairro A', '11130/310', 'Em frente a casa 184', 'Rua XD', 'Rio de Janeiro', '76', 'RJ');
 
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (7, 'Bairro A', '11130-310', 'Paralela a Rua XD', 'Rua XF', 'Rio de Janeiro', '310', 'RJ');
+VALUES (7, 'Bairro A', '11130/310', 'Paralela a Rua XD', 'Rua XF', 'Rio de Janeiro', '310', 'RJ');
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (8, 'Bairro H', '23178-981', 'Próximo ao posto Z', 'Rua O23', 'Rio de Janeiro', '23', 'RJ');
+VALUES (8, 'Bairro H', '23178/981', 'Próximo ao posto Z', 'Rua O23', 'Rio de Janeiro', '23', 'RJ');
 
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (1, '(11) 11111-1111', '111.111.111-11', '11/11/1990', '11.111.111-11', 'Rodrigo Werneck', 'Masculino', 1);
+VALUES (1, '(11) 11111/1111', '111.111.111/11', '11/11/1990', '11.111.111/11', 'Rodrigo Werneck', 'Masculino', 1);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (2, '(22) 22222-2222', '222.222.222-22', '02/02/1990', '22.222.222-22', 'Maria Luiza', 'Feminino', 2);
+VALUES (2, '(22) 22222/2222', '222.222.222/22', '02/02/1990', '22.222.222/22', 'Maria Luiza', 'Feminino', 2);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (3, '(33) 33333-3333', '333.333.333-33', '22/11/1990', '33.333.333-33', 'Amanda Inácio', 'Feminino', 3);
+VALUES (3, '(33) 33333/3333', '333.333.333/33', '22/11/1990', '33.333.333/33', 'Amanda Inácio', 'Feminino', 3);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (4, '(44) 44444-4444', '444.444.444-44', '22/11/1990', '44.444.444-44', 'Shaiana', 'Feminino', 4);
+VALUES (4, '(44) 44444/4444', '444.444.444/44', '22/11/1990', '44.444.444/44', 'Shaiana', 'Feminino', 4);
 
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (5, '(55) 55555-5555', '555.555.555-55', '01/01/2015', '55.555.555-55', 'Filha 01', 'Feminino', 5);
+VALUES (5, '(55) 55555/5555', '555.555.555/55', '01/01/2015', '55.555.555/55', 'Filha 01', 'Feminino', 5);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (6, '(66) 66666-6666', '666.666.666-66', '01/01/2016', '66.666.666-66', 'Filho 01', 'Masculino', 6);
+VALUES (6, '(66) 66666/6666', '666.666.666/66', '01/01/2016', '66.666.666/66', 'Filho 01', 'Masculino', 6);
 
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
 VALUES (1, 'rodrigo.werneck@id.uff.br', '123456', 2, 1);
@@ -64,9 +64,9 @@ INSERT INTO ano_escolaridade (id, nome, descricao)
 VALUES (9, '9º Ano', 'nono ano do ensino fundamental');
 
 INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
-VALUES (1, '2020-12-2020', 'Unidade Escolar - ABC', 240, 7);
+VALUES (1, '20/12/2020', 'Unidade Escolar / ABC', 240, 7);
 INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
-VALUES (2, '2020-12-2020', 'Unidade Escolar - DFG', 310, 8);
+VALUES (2, '25/02/2020', 'Unidade Escolar / DFG', 310, 8);
 
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (1, 1);
@@ -86,6 +86,20 @@ VALUES (2, 7);
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (2, 9);
 
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(1, '29/12/2020', '12234291', 1, 1, 1);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(2, '23/11/2019', '23423275', 1, 1, 2);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(3, '09/09/2018', '23423275', 1, 1, 1);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(4, '19/02/2017', '23423275', 1, 1, 2);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(5, '11/08/2019', '23423275', 2, 2, 2);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(6, '08/03/2020', '23423275', 2, 2, 1);
+INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+VALUES(7, '04/04/2017', '23423275', 2, 2, 1);
 
 
 
