@@ -93,6 +93,6 @@ public class AnoEscolaridadeController {
         if (Objects.isNull(anoEscolaridadeService.buscarPorId(id)))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ano Escolaridade não encontrado.");
         anoEscolaridadeService.removerAnoEscolaridade(id);
-        return "AnoEscolaridade removido com sucesso!";
+        return "Ano Escolaridade removido com sucesso!";
     }
 }
