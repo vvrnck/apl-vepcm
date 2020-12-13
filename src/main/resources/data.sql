@@ -16,26 +16,15 @@ VALUES (7, 'Bairro A', '11130-310', 'Paralela a Rua XD', 'Rua XF', 'Rio de Janei
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
 VALUES (8, 'Bairro H', '23178-981', 'Próximo ao posto Z', 'Rua O23', 'Rio de Janeiro', '23', 'RJ');
 
-<<<<<<< HEAD
-=======
-INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (4, 'Bairro A','21730-660', null, 'Rua ABC', 'Rio de Janeiro', '126', 'RJ');
-
-INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
-VALUES (5, 'Bairro A','21730-660', null, 'Rua DFG', 'Rio de Janeiro', '226', 'RJ');
-
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (1, '(11) 11111-1111', '111.111.111-11', '11/11/1990', '11.111.111-11', 'Rodrigo Werneck', 'Masculino', 1);
->>>>>>> master
-
-INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
-VALUES (1, '(11) 11111-1111', '111.111.111-11', '01/01/1990', '11.111.111-11', 'Rodrigo Werneck', 'Masculino', 1);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (2, '(22) 22222-2222', '222.222.222-22', '02/02/1990', '22.222.222-22', 'Maria Luiza', 'Feminino', 2);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (3, '(33) 33333-3333', '333.333.333-33', '22/11/1990', '33.333.333-33', 'Amanda Inácio', 'Feminino', 3);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (4, '(44) 44444-4444', '444.444.444-44', '22/11/1990', '44.444.444-44', 'Shaiana', 'Feminino', 4);
+
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (5, '(55) 55555-5555', '555.555.555-55', '01/01/2015', '55.555.555-55', 'Filha 01', 'Feminino', 5);
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
@@ -43,10 +32,6 @@ VALUES (6, '(66) 66666-6666', '666.666.666-66', '01/01/2016', '66.666.666-66', '
 
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
 VALUES (1, 'rodrigo.werneck@id.uff.br', '123456', 2, 1);
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
 VALUES (2, 'maria.luiza@id.uff.br', '123456', 0, 2);
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
@@ -79,16 +64,9 @@ INSERT INTO ano_escolaridade (id, nome, descricao)
 VALUES (9, '9º Ano', 'nono ano do ensino fundamental');
 
 INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
-<<<<<<< HEAD
 VALUES (1, '2020-12-2020', 'Unidade Escolar - ABC', 240, 7);
 INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
 VALUES (2, '2020-12-2020', 'Unidade Escolar - DFG', 310, 8);
-=======
-VALUES (1, '2020-12-2020', 'Unidade Escolar - ABC', 240, 4);
-
-INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
-VALUES (2, '2020-12-2020', 'Unidade Escolar - DFG', 310, 5);
->>>>>>> master
 
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (1, 1);
@@ -98,8 +76,6 @@ INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolarida
 VALUES (1, 3);
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (1, 7);
-<<<<<<< HEAD
-=======
 
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (2, 4);
@@ -109,7 +85,7 @@ INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolarida
 VALUES (2, 7);
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (2, 9);
->>>>>>> master
+
 
 
 
