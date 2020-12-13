@@ -1,9 +1,5 @@
 package br.com.uff.vepcm.web.dto;
 
-import br.com.uff.vepcm.domain.entity.Endereco;
-
-import javax.persistence.*;
-
 public class PessoaDTO {
     private String nome;
     private String identidade;

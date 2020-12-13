@@ -3,7 +3,6 @@ package br.com.uff.vepcm.web.controller;
 import br.com.uff.vepcm.domain.entity.UnidadeEscolar;
 import br.com.uff.vepcm.service.UnidadeEscolarService;
 import br.com.uff.vepcm.web.dto.UnidadeEscolarDTO;
-import br.com.uff.vepcm.web.dto.UsuarioDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

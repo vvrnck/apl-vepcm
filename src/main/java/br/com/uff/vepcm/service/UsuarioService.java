@@ -1,7 +1,6 @@
 package br.com.uff.vepcm.service;
 
 import br.com.uff.vepcm.domain.entity.Usuario;
-
 import javax.validation.Valid;
 import java.util.List;
 

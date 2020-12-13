@@ -1,15 +1,11 @@
 package br.com.uff.vepcm.service.impl;
 
-import br.com.uff.vepcm.domain.entity.Pessoa;
 import br.com.uff.vepcm.domain.entity.Usuario;
-import br.com.uff.vepcm.domain.repository.PessoaRepository;
 import br.com.uff.vepcm.domain.repository.UsuarioRepository;
-import br.com.uff.vepcm.service.PessoaService;
 import br.com.uff.vepcm.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;

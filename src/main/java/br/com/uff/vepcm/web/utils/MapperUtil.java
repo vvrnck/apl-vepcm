@@ -2,7 +2,6 @@ package br.com.uff.vepcm.web.utils;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

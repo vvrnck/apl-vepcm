@@ -1,8 +1,6 @@
 package br.com.uff.vepcm.web.dto;
 
-import br.com.uff.vepcm.domain.entity.Pessoa;
 import br.com.uff.vepcm.domain.enums.TipoUsuario;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -15,10 +13,6 @@ public class UsuarioDTO {
     public String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public String senha;
-//    @JsonProperty("tipoUsuario")
-//    public TipoUsuario tipoUsuarioEnum;
-//    @JsonIgnore
-//    private String tipoUsuario;
     private TipoUsuario tipoUsuario;
     private PessoaDTO pessoa;
 
@@ -48,23 +42,6 @@ public class UsuarioDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-//    public TipoUsuario getTipoUsuarioEnum() {
-//        return tipoUsuarioEnum;
-//    }
-//
-//    public void setTipoUsuarioEnum(TipoUsuario tipoUsuarioEnum) {
-//        this.tipoUsuarioEnum = tipoUsuarioEnum;
-//    }
-//
-//    public String getTipoUsuario() {
-//        return tipoUsuario;
-//    }
-//
-//    public void setTipoUsuario(String tipoUsuario) {
-//        this.tipoUsuario = tipoUsuario;
-//    }
-
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;

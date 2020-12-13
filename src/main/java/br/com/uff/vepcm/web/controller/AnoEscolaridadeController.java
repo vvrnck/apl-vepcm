@@ -1,10 +1,7 @@
 package br.com.uff.vepcm.web.controller;
 
-
-import br.com.uff.vepcm.domain.entity.Aluno;
 import br.com.uff.vepcm.domain.entity.AnoEscolaridade;
 import br.com.uff.vepcm.service.AnoEscolaridadeService;
-import br.com.uff.vepcm.web.dto.AlunoDTO;
 import br.com.uff.vepcm.web.dto.AnoEscolaridadeDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;

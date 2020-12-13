@@ -3,7 +3,6 @@ package br.com.uff.vepcm.web.controller;
 import br.com.uff.vepcm.domain.entity.Usuario;
 import br.com.uff.vepcm.service.AuthService;
 import br.com.uff.vepcm.service.exception.LoginUsuarioException;
-import br.com.uff.vepcm.web.dto.AlunoDTO;
 import br.com.uff.vepcm.web.dto.UsuarioDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;
