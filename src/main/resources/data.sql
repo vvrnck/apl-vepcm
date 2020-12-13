@@ -7,6 +7,12 @@ VALUES (2, 'Bairro C','21730-660', null, 'Rua 2132', 'Rio de Janeiro', '32', 'RJ
 INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
 VALUES (3, 'Bairro A','21730-660', null, 'Rua 1', 'Rio de Janeiro', '76', 'RJ');
 
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
+VALUES (4, 'Bairro A','21730-660', null, 'Rua ABC', 'Rio de Janeiro', '126', 'RJ');
+
+INSERT INTO endereco (id, bairro, cep, complemento, logradouro, municipio, numero, uf)
+VALUES (5, 'Bairro A','21730-660', null, 'Rua DFG', 'Rio de Janeiro', '226', 'RJ');
+
 INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, endereco_id)
 VALUES (1, '(11) 11111-1111', '111.111.111-11', '11/11/1990', '11.111.111-11', 'Rodrigo Werneck', 'Masculino', 1);
 
@@ -17,7 +23,7 @@ INSERT INTO pessoa (id, celular, cpf, data_nasc, identidade, nome, sexo, enderec
 VALUES (3, null, null, '01/08/2005', '12.312.553-87', 'Filha 01', 'Feminino', 3);
 
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
-VALUES (1, 'rodrigo.werneck@id.uff.br', '123456', 0, 1);
+VALUES (1, 'rodrigo.werneck@id.uff.br', '123456', 2, 1);
 
 INSERT INTO usuario (id, email, senha, tipo_usuario, pessoa_id)
 VALUES (2, 'malu@id.uff.br', '123456', 0, 2);
@@ -44,6 +50,29 @@ VALUES (8, '8º Ano', 'oitavo ano do ensino fundamental');
 INSERT INTO ano_escolaridade (id, nome, descricao)
 VALUES (9, '9º Ano', 'nono ano do ensino fundamental');
 
+INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
+VALUES (1, '2020-12-2020', 'Unidade Escolar - ABC', 240, 4);
+
+INSERT INTO unidade_escolar (id, data, nome, num_vagas, endereco_id)
+VALUES (2, '2020-12-2020', 'Unidade Escolar - DFG', 310, 5);
+
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (1, 1);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (1, 2);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (1, 3);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (1, 7);
+
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (2, 4);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (2, 6);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (2, 7);
+INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
+VALUES (2, 9);
 
 
 

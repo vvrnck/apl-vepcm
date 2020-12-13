@@ -31,7 +31,7 @@ public class UsuarioController {
 
     MapperUtil mapperUtil = MapperUtil.getInstance();
 
-    @Operation(summary = "Retorna todos os usuarios")
+    @Operation(summary = "Busca por todos os usuários.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Usuários encontrados",
                     content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioDTO.class))) })
@@ -41,11 +41,11 @@ public class UsuarioController {
         return mapperUtil.toList(usuarioService.buscarTodosUsuarios(), UsuarioDTO.class);
     }
 
-    @Operation(summary = "Cria um novo usuario")
+    @Operation(summary = "Cria um novo usuário.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Usuario criado com sucesso",
+            @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioDTO.class)) }),
-            @ApiResponse(responseCode = "400", description = "Usuario invalido", content = @Content)
+            @ApiResponse(responseCode = "400", description = "Usuário inválido.", content = @Content)
     })
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -54,55 +54,45 @@ public class UsuarioController {
         return mapperUtil.mapTo(usuarioService.salvarUsuario(usuario), UsuarioDTO.class);
     }
 
-    @Operation(summary = "Busca um usuario por seu id")
+    @Operation(summary = "Busca um usuário por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Usuario encontrado",
+            @ApiResponse(responseCode = "200", description = "Usuário encontrado.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Usuario nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Usuário não encontrado.", content = @Content)
     })
     @GetMapping("/{id}")
-    public UsuarioDTO buscarPorId(@Parameter(description = "id do usuario a ser buscado") @PathVariable Long id) {
+    public UsuarioDTO buscarPorId(@Parameter(description = "id do usuário a ser buscado.") @PathVariable Long id) {
         Usuario usuario = usuarioService.buscarPorId(id);
         if (Objects.isNull(usuario))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado.");
         return mapperUtil.mapTo(usuario, UsuarioDTO.class);
     }
 
-    @Operation(summary = "Busca usuarios do tipo vendedor")
+    @Operation(summary = "Altera um usuário existente.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Usuarios encontrados",
-                    content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UsuarioDTO.class))) })
-    })
-    @GetMapping("vendedores")
-    public List<UsuarioDTO> buscarTodosVendedores() {
-        return mapperUtil.toList(usuarioService.buscarTodosVendedores(), UsuarioDTO.class);
-    }
-
-    @Operation(summary = "Altera um usuario existente")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Usuario encontrado",
+            @ApiResponse(responseCode = "200", description = "Usuário encontrado.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UsuarioDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Usuario nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Usuário não encontrado.", content = @Content)
     })
     @PutMapping("{id}")
-    public UsuarioDTO alterarUsuario(@Parameter(description = "id de usuario a ser alterado") @PathVariable Long id,
+    public UsuarioDTO alterarUsuario(@Parameter(description = "id do usuário a ser alterado.") @PathVariable Long id,
                                      @RequestBody UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioService.alterarUsuario(id, mapperUtil.mapTo(usuarioDTO, Usuario.class));
         if (Objects.isNull(usuario))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado.");
         return mapperUtil.mapTo(usuario, UsuarioDTO.class);
     }
 
-    @Operation(summary = "Remove um usuario")
+    @Operation(summary = "Remove um usuário porr seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Usuario removido", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Usuario nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "204", description = "Usuário removido.", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Usuário não encontrado.", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String remover(@Parameter(description = "id de usuario a ser removido") @PathVariable Long id) {
+    public String remover(@Parameter(description = "id do usuário a ser removido.") @PathVariable Long id) {
         if (Objects.isNull(usuarioService.buscarPorId(id)))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário nao encontrado.");
         usuarioService.removerUsuario(id);
         return "Usuário removido com Sucesso!";
     }

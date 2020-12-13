@@ -9,8 +9,6 @@ public interface UsuarioService {
     List<Usuario> buscarTodosUsuarios();
     Usuario salvarUsuario(@Valid Usuario usuario);
     Usuario buscarPorId(Long id);
-    Usuario buscarPorEmail(String email);
-    List<Usuario> buscarTodosVendedores();
     Usuario alterarUsuario(Long id, @Valid Usuario usuario);
     void removerUsuario(Long id);
 }

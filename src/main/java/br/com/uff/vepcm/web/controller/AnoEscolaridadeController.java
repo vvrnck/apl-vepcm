@@ -33,15 +33,21 @@ public class AnoEscolaridadeController {
 
     MapperUtil mapperUtil = MapperUtil.getInstance();
 
+    @Operation(summary = "Cria um novo Ano Escolaridade.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Ano Escolaridade criado com sucesso.",
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AnoEscolaridadeDTO.class)) }),
+            @ApiResponse(responseCode = "400", description = "Ano Escolaridade inválido.", content = @Content)
+    })
     @PostMapping
     public AnoEscolaridadeDTO criarAnoEscolaridade (@RequestBody AnoEscolaridadeDTO anoEscolaridadeDTO) {
         AnoEscolaridade anoEscolaridade = anoEscolaridadeService.salvarAnoEscolaridade(mapperUtil.mapTo(anoEscolaridadeDTO, AnoEscolaridade.class));
         return mapperUtil.mapTo(anoEscolaridade, AnoEscolaridadeDTO.class);
     }
 
-    @Operation(summary = "Retorna todos os anoEscolaridades")
+    @Operation(summary = "Busca por todos os Anos Escolaridades.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "AnoEscolaridades encontrados",
+            @ApiResponse(responseCode = "200", description = "Anos Escolaridades encontrados.",
                     content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AnoEscolaridadeDTO.class))) })
     })
     @GetMapping
@@ -49,14 +55,14 @@ public class AnoEscolaridadeController {
         return mapperUtil.toList(anoEscolaridadeService.buscarTodos(), AnoEscolaridadeDTO.class);
     }
 
-    @Operation(summary = "Busca um anoEscolaridade por seu id")
+    @Operation(summary = "Busca um Ano Escolaridade por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "AnoEscolaridade encontrado",
+            @ApiResponse(responseCode = "200", description = "Ano Escolaridade encontrado.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AnoEscolaridadeDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "AnoEscolaridade nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Ano Escolaridade não encontrado.", content = @Content)
     })
     @GetMapping("{id}")
-    public AnoEscolaridadeDTO buscarPorId(@Parameter(description = "id do anoEscolaridade a ser encontrado") @PathVariable Long id) {
+    public AnoEscolaridadeDTO buscarPorId(@Parameter(description = "id do Ano Escolaridade a ser encontrado.") @PathVariable Long id) {
         AnoEscolaridade anoEscolaridade = anoEscolaridadeService.buscarPorId(id);
         if (Objects.isNull(anoEscolaridade))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -64,31 +70,31 @@ public class AnoEscolaridadeController {
     }
 
 
-    @Operation(summary = "Altera um ano escolaridade")
+    @Operation(summary = "Altera um Ano Escolaridade.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Ano escolaridade alterado com sucesso",
+            @ApiResponse(responseCode = "200", description = "Ano Escolaridade alterado com sucesso.",
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AnoEscolaridadeDTO.class)) }),
-            @ApiResponse(responseCode = "404", description = "Ano escolaridade nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Ano Escolaridade não encontrado.", content = @Content)
     })
     @PutMapping("{id}")
-    public AnoEscolaridadeDTO alterarAnoEscolaridade(@Parameter(description = "id do AE a ser alterado") @PathVariable Long id, @RequestBody AnoEscolaridadeDTO anoEscolaridadeDTO) {
+    public AnoEscolaridadeDTO alterarAnoEscolaridade(@Parameter(description = "id do Ano Escolaridade a ser alterado.") @PathVariable Long id, @RequestBody AnoEscolaridadeDTO anoEscolaridadeDTO) {
         AnoEscolaridade ae = anoEscolaridadeService.alterarAnoEscolaridade(id, mapperUtil.mapTo(anoEscolaridadeDTO, AnoEscolaridade.class));
         if (Objects.isNull(ae))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "AE nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ano Escolaridade não encontrado.");
         return mapperUtil.mapTo(ae, AnoEscolaridadeDTO.class);
     }
 
 
-    @Operation(summary = "Remove um anoEscolaridade por seu id")
+    @Operation(summary = "Remove um Ano Escolaridade por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "AnoEscolaridade removido com sucesso"),
-            @ApiResponse(responseCode = "404", description = "AnoEscolaridade nao encontrado", content = @Content)
+            @ApiResponse(responseCode = "200", description = "Ano Escolaridade removido com sucesso."),
+            @ApiResponse(responseCode = "404", description = "Ano Escolaridade não encontrado.", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public String remover(@Parameter(description = "id do anoEscolaridade a ser removido") @PathVariable Long id) {
+    public String remover(@Parameter(description = "id do Ano Escolaridade a ser removido.") @PathVariable Long id) {
         if (Objects.isNull(anoEscolaridadeService.buscarPorId(id)))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "AnoEscolaridade nao encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Ano Escolaridade não encontrado.");
         anoEscolaridadeService.removerAnoEscolaridade(id);
         return "AnoEscolaridade removido com sucesso!";
     }

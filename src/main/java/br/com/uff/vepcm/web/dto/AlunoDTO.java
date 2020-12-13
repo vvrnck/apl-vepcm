@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 
 public class AlunoDTO {
+    private Long id;
     private String naturalidade;
     private String nomeMae;
     private String nomePai;
@@ -13,6 +14,14 @@ public class AlunoDTO {
     private Long idResponsavel;
 
     public AlunoDTO() {}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNaturalidade() {
         return naturalidade;
