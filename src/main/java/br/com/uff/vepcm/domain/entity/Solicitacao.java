@@ -9,10 +9,8 @@ public class Solicitacao {
     private Long id;
     private String protocolo;
     private String data;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Usuario Responsavel;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Aluno Aluno;
+    private Long idResponsavel;
+    private Long idAluno;
    /* @OneToOne(cascade = CascadeType.ALL)
     private AnoEscolaridade AnoEscolaridade;*/
     @OneToOne(cascade = CascadeType.ALL)
@@ -45,20 +43,20 @@ public class Solicitacao {
         this.data = data;
     }
 
-    public Usuario getResponsavel() {
-        return Responsavel;
+        public Long getIdResponsavel() {
+        return idResponsavel;
     }
 
-    public void setResponsavel(Usuario responsavel) {
-        Responsavel = responsavel;
+    public void setIdResponsavel(Long idResponsavel) {
+        this.idResponsavel = idResponsavel;
     }
 
-    public Aluno getAluno() {
-        return Aluno;
+    public Long getIdAluno() {
+        return idAluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        Aluno = aluno;
+    public void setIdAluno(Long idAluno) {
+        this.idAluno = idAluno;
     }
 
     /*public br.com.uff.vepcm.domain.entity.AnoEscolaridade getAnoEscolaridade() {

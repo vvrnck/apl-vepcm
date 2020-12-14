@@ -1,6 +1,7 @@
 package br.com.uff.vepcm.web.controller;
 
 import br.com.uff.vepcm.domain.entity.Solicitacao;
+import br.com.uff.vepcm.domain.entity.Usuario;
 import br.com.uff.vepcm.service.SolicitacaoService;
 import br.com.uff.vepcm.web.dto.SolicitacaoDTO;
 import br.com.uff.vepcm.web.dto.UnidadeEscolarDTO;
@@ -110,6 +111,20 @@ public class SolicitacaoController {
         if (Objects.isNull(solicitacaos))
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return mapperUtil.toList(solicitacaos, SolicitacaoDTO.class);
+    }
+
+    @Operation(summary = "Busca todos as Solicitações criadas por um responsável dado seu id.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Solicitações encontradas.",
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
+            @ApiResponse(responseCode = "404", description = "Solicitações não encontradas.", content = @Content)
+    })
+    @GetMapping("responsavel/{id}")
+    public List<SolicitacaoDTO> buscarSolicitacoesPorResponsavel(@Parameter(description = "id do responsável que possui Solicitações.") @PathVariable Long id) {
+        List<Solicitacao> solicitacoes = solicitacaoService.buscarSolicitacoesPorResponsavel(id);
+        if (Objects.isNull(solicitacoes))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        return mapperUtil.toList(solicitacoes, SolicitacaoDTO.class);
     }
 
 }

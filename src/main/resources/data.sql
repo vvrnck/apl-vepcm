@@ -86,19 +86,19 @@ VALUES (2, 7);
 INSERT INTO unidade_escolar_ano_escolaridade (unidade_escolar_id, ano_escolaridade_id)
 VALUES (2, 9);
 
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(1, '29/12/2020', '12234291', 1, 1, 1);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(2, '23/11/2019', '23423275', 1, 1, 2);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(3, '09/09/2018', '23423275', 1, 1, 1);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(4, '19/02/2017', '23423275', 1, 1, 2);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(5, '11/08/2019', '23423275', 2, 2, 2);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(6, '08/03/2020', '23423275', 2, 2, 1);
-INSERT INTO solicitacao (id, data, protocolo, aluno_id, responsavel_id, unidade_escolar_id)
+INSERT INTO solicitacao (id, data, protocolo, id_aluno, id_responsavel, unidade_escolar_id)
 VALUES(7, '04/04/2017', '23423275', 2, 2, 1);
 
 

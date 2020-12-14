@@ -10,6 +10,7 @@ public interface SolicitacaoService {
         Solicitacao buscarPorId(Long id);
         List<Solicitacao> buscarTodasSolicitacoes();
         List<Solicitacao> buscarSolicitacoesPorProtocolo(String id);
+        List<Solicitacao> buscarSolicitacoesPorResponsavel(Long id);
         Solicitacao alterarSolicitacao(Long id, @Valid Solicitacao solicitacao);
         void removerSolicitacao(Long id);
 

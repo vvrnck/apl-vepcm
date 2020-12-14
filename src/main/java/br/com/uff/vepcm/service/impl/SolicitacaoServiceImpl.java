@@ -37,6 +37,12 @@ import java.util.Objects;
             return solicitacaoRepository.buscarSolicitacoesPorProtocolo(id);
         }
 
+        @Override
+        public List<Solicitacao> buscarSolicitacoesPorResponsavel(Long id) {
+            return solicitacaoRepository.buscarSolicitacoesPorResponsavel(id);
+        }
+
+
         @Transactional
         @Override
         public Solicitacao alterarSolicitacao(Long id, @Valid Solicitacao solicitacaoAlterado) {
@@ -46,8 +52,8 @@ import java.util.Objects;
 
             if (Objects.nonNull(solicitacaoAlterado.getProtocolo())) solicitacao.setProtocolo(solicitacaoAlterado.getProtocolo());
             if (Objects.nonNull(solicitacaoAlterado.getData())) solicitacao.setData(solicitacaoAlterado.getData());
-            if (Objects.nonNull(solicitacaoAlterado.getResponsavel())) solicitacao.setResponsavel(solicitacaoAlterado.getResponsavel());
-            if (Objects.nonNull(solicitacaoAlterado.getAluno())) solicitacao.setAluno(solicitacaoAlterado.getAluno());
+            if (Objects.nonNull(solicitacaoAlterado.getIdResponsavel())) solicitacao.setIdResponsavel(solicitacaoAlterado.getIdResponsavel());
+            if (Objects.nonNull(solicitacaoAlterado.getIdAluno())) solicitacao.setIdAluno(solicitacaoAlterado.getIdAluno());
 //            if (Objects.nonNull(solicitacaoAlterado.getAnoEscolaridade())) solicitacao.setAnoEscolaridade(solicitacaoAlterado.getAnoEscolaridade());
             if (Objects.nonNull(solicitacaoAlterado.getUnidadeEscolar())) solicitacao.setUnidadeEscolar(solicitacaoAlterado.getUnidadeEscolar());
             return salvarSolicitacao(solicitacao);

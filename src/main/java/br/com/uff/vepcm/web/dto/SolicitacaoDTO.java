@@ -12,8 +12,8 @@ public class SolicitacaoDTO {
     private Long id;
     private String protocolo;
     private String data;
-    private Usuario Responsavel;
-    private Aluno Aluno;
+    private Long idResponsavel;
+    private Long idAluno;
     private UnidadeEscolar UnidadeEscolar;
 
     SolicitacaoDTO(){}
@@ -42,22 +42,21 @@ public class SolicitacaoDTO {
         this.data = data;
     }
 
-    public Usuario getResponsavel() {
-        return Responsavel;
+    public Long getIdResponsavel() {
+        return idResponsavel;
     }
 
-    public void setResponsavel(Usuario responsavel) {
-        Responsavel = responsavel;
+    public void setIdResponsavel(Long idResponsavel) {
+        this.idResponsavel = idResponsavel;
     }
 
-    public Aluno getAluno() {
-        return Aluno;
+    public Long getIdAluno() {
+        return idAluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        Aluno = aluno;
+    public void setIdAluno(Long idAluno) {
+        this.idAluno = idAluno;
     }
-
 
     public UnidadeEscolar getUnidadeEscolar() {
         return UnidadeEscolar;
