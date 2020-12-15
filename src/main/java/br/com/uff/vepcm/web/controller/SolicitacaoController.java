@@ -1,10 +1,8 @@
 package br.com.uff.vepcm.web.controller;
 
 import br.com.uff.vepcm.domain.entity.Solicitacao;
-import br.com.uff.vepcm.domain.entity.Usuario;
 import br.com.uff.vepcm.service.SolicitacaoService;
 import br.com.uff.vepcm.web.dto.SolicitacaoDTO;
-import br.com.uff.vepcm.web.dto.UnidadeEscolarDTO;
 import br.com.uff.vepcm.web.utils.MapperUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -36,7 +34,7 @@ public class SolicitacaoController {
     @Operation(summary = "Cria uma nova Solicitação.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Solicitação criada com sucesso.",
-                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeEscolarDTO.class)) }),
+                    content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
             @ApiResponse(responseCode = "400", description = "Solicitação inválida.", content = @Content)
     })
     @PostMapping
@@ -71,8 +69,8 @@ public class SolicitacaoController {
 
     @Operation(summary = "Remove uma Solicitação por seu id.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Solicitacao removida com sucesso."),
-            @ApiResponse(responseCode = "404", description = "Solicitacao não encontrada.", content = @Content)
+            @ApiResponse(responseCode = "200", description = "Solicitação removida com sucesso."),
+            @ApiResponse(responseCode = "404", description = "Solicitação não encontrada.", content = @Content)
     })
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.OK)

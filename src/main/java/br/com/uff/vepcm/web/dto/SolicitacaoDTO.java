@@ -1,11 +1,8 @@
 package br.com.uff.vepcm.web.dto;
 
 import br.com.uff.vepcm.domain.entity.Aluno;
-import br.com.uff.vepcm.domain.entity.AnoEscolaridade;
 import br.com.uff.vepcm.domain.entity.UnidadeEscolar;
-import br.com.uff.vepcm.domain.entity.Usuario;
 
-import javax.persistence.*;
 
 public class SolicitacaoDTO {
 
@@ -13,8 +10,8 @@ public class SolicitacaoDTO {
     private String protocolo;
     private String data;
     private Long idResponsavel;
-    private Long idAluno;
-    private UnidadeEscolar UnidadeEscolar;
+    private Aluno aluno;
+    private UnidadeEscolar unidadeEscolar;
 
     SolicitacaoDTO(){}
 
@@ -50,19 +47,19 @@ public class SolicitacaoDTO {
         this.idResponsavel = idResponsavel;
     }
 
-    public Long getIdAluno() {
-        return idAluno;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setIdAluno(Long idAluno) {
-        this.idAluno = idAluno;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     public UnidadeEscolar getUnidadeEscolar() {
-        return UnidadeEscolar;
+        return unidadeEscolar;
     }
 
     public void setUnidadeEscolar(UnidadeEscolar unidadeEscolar) {
-        UnidadeEscolar = unidadeEscolar;
+        this.unidadeEscolar = unidadeEscolar;
     }
 }

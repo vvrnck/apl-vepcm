@@ -10,11 +10,12 @@ public class Solicitacao {
     private String protocolo;
     private String data;
     private Long idResponsavel;
-    private Long idAluno;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Aluno aluno;
    /* @OneToOne(cascade = CascadeType.ALL)
     private AnoEscolaridade AnoEscolaridade;*/
     @OneToOne(cascade = CascadeType.ALL)
-    private UnidadeEscolar UnidadeEscolar;
+    private UnidadeEscolar unidadeEscolar;
 
 
     public Solicitacao(){}
@@ -51,12 +52,12 @@ public class Solicitacao {
         this.idResponsavel = idResponsavel;
     }
 
-    public Long getIdAluno() {
-        return idAluno;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public void setIdAluno(Long idAluno) {
-        this.idAluno = idAluno;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
     /*public br.com.uff.vepcm.domain.entity.AnoEscolaridade getAnoEscolaridade() {
@@ -68,10 +69,10 @@ public class Solicitacao {
     }*/
 
     public UnidadeEscolar getUnidadeEscolar() {
-        return UnidadeEscolar;
+        return unidadeEscolar;
     }
 
     public void setUnidadeEscolar(UnidadeEscolar unidadeEscolar) {
-        UnidadeEscolar = unidadeEscolar;
+        this.unidadeEscolar = unidadeEscolar;
     }
 }
