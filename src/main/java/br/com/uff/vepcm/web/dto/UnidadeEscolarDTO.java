@@ -5,22 +5,18 @@ import br.com.uff.vepcm.domain.entity.Endereco;
 import java.util.Set;
 
 public class UnidadeEscolarDTO {
-    private Long id;
+    //private Long id;
     private String nome;
     private int numVagas;
     private String data;
-    private Endereco endereco;
+    private EnderecoDTO endereco;
     private Set<AnoEscolaridadeDTO> anoEscolaridade;
 
     public UnidadeEscolarDTO() {}
 
-    public Long getId() {
-        return id;
-    }
+    //public Long getId() { return id; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    //public void setId(Long id) { this.id = id; }
 
     public String getNome() {
         return nome;
@@ -46,11 +42,11 @@ public class UnidadeEscolarDTO {
         this.data = data;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoDTO getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(EnderecoDTO endereco) {
         this.endereco = endereco;
     }
 
