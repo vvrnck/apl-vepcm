@@ -103,6 +103,7 @@ public class SolicitacaoController {
                     content = { @Content(mediaType = "application/json", schema = @Schema(implementation = SolicitacaoDTO.class)) }),
             @ApiResponse(responseCode = "404", description = "Solicitação não encontrada.", content = @Content)
     })
+    @CrossOrigin
     @GetMapping("search")
     public List<SolicitacaoDTO> buscarSolicitacoesPorProtocolo(@Parameter(description = "número do protocolo de uma Solicitação.") @RequestParam(name = "protocolo") String protocolo) {
         List<Solicitacao> solicitacaos = solicitacaoService.buscarSolicitacoesPorProtocolo(protocolo);

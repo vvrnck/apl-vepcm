@@ -5,7 +5,7 @@ import br.com.uff.vepcm.domain.entity.Endereco;
 import java.util.Set;
 
 public class UnidadeEscolarDTO {
-    //private Long id;
+    private Long id;
     private String nome;
     private int numVagas;
     private String data;
@@ -14,9 +14,9 @@ public class UnidadeEscolarDTO {
 
     public UnidadeEscolarDTO() {}
 
-    //public Long getId() { return id; }
+    public Long getId() { return id; }
 
-    //public void setId(Long id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getNome() {
         return nome;
