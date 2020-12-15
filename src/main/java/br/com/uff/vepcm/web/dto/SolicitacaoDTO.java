@@ -1,6 +1,7 @@
 package br.com.uff.vepcm.web.dto;
 
 import br.com.uff.vepcm.domain.entity.Aluno;
+import br.com.uff.vepcm.domain.entity.AnoEscolaridade;
 import br.com.uff.vepcm.domain.entity.UnidadeEscolar;
 
 
@@ -10,8 +11,9 @@ public class SolicitacaoDTO {
     private String protocolo;
     private String data;
     private Long idResponsavel;
-    private Aluno aluno;
-    private UnidadeEscolar unidadeEscolar;
+    private Long idAluno;
+    private Long idAnoEscolaridade;
+    private Long idUnidadeEscolar;
 
     SolicitacaoDTO(){}
 
@@ -47,19 +49,27 @@ public class SolicitacaoDTO {
         this.idResponsavel = idResponsavel;
     }
 
-    public Aluno getAluno() {
-        return aluno;
+    public Long getIdAluno() {
+        return idAluno;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void setIdAluno(Long idAluno) {
+        this.idAluno = idAluno;
     }
 
-    public UnidadeEscolar getUnidadeEscolar() {
-        return unidadeEscolar;
+    public Long getIdAnoEscolaridade() {
+        return idAnoEscolaridade;
     }
 
-    public void setUnidadeEscolar(UnidadeEscolar unidadeEscolar) {
-        this.unidadeEscolar = unidadeEscolar;
+    public void setIdAnoEscolaridade(Long idAnoEscolaridade) {
+        this.idAnoEscolaridade = idAnoEscolaridade;
+    }
+
+    public Long getIdUnidadeEscolar() {
+        return idUnidadeEscolar;
+    }
+
+    public void setIdUnidadeEscolar(Long idUnidadeEscolar) {
+        this.idUnidadeEscolar = idUnidadeEscolar;
     }
 }
