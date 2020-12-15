@@ -1,18 +1,13 @@
-package br.com.uff.vepcm.domain.entity;
+package br.com.uff.vepcm.web.dto;
 
-import javax.persistence.*;
-
-@Entity
-public class FaleConosco {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FaleConoscoDTO {
     private Long id;
     private String data;
     private String assunto;
     private String texto;
     private Long idUsuario;
 
-    public FaleConosco(){  }
+    FaleConoscoDTO(){ }
 
     public Long getId() {
         return id;
