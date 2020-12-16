@@ -28,7 +28,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Transactional
     @Override
     public Usuario salvarUsuario(@Valid Usuario usuario) {
-        usuario.setSenha(encoder.encode(usuario.getSenha()));
+//        usuario.setSenha(encoder.encode(usuario.getSenha()));
         return usuarioRepository.save(usuario);
     }
 
